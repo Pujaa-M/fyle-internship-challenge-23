@@ -1,0 +1,17 @@
+@import './variables.scss';
+
+@mixin skeleton-load {
+  background: $skeleton-gradient;
+  background-position: 0px;
+  animation: shimmer 10s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -1000px;
+  }
+  to {
+    background-position: 1000px;
+  }
+}

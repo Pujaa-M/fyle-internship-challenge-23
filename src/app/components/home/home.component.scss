@@ -1,0 +1,182 @@
+@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/mixins.scss';
+@import '../../../assets/styles/responsive.scss';
+
+.home-container {
+  width: 100%;
+  height: 100%;
+  background: $secondary-color;
+
+  .search-bar {
+    height: 10%;
+  }
+
+  .msg {
+    width: 100%;
+    height: 90%;
+    text-align: center;
+
+    p {
+      position: relative;
+      top: 25%;
+    }
+  }
+
+  .home-user-data {
+    width: 100%;
+    height: 20%;
+
+    .loading-user {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+        .user-primary-data {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 20%;
+
+          .avatar {
+            @include skeleton-load;
+            animation-duration: 25s;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid $border-color;
+          }
+      
+          .description {
+            .username {
+              margin-bottom: 5px;
+              width: 300px;
+              height: 24px;
+              @include skeleton-load;
+            }
+      
+            .bio {
+              width: 500px;
+              height: 18px;
+              @include skeleton-load;
+            }
+          }
+        }
+
+      .follow-data {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 450px;
+
+        .followers {
+          width: 200px;
+          height: 18px;
+          @include skeleton-load;
+        }
+
+        .following {
+          width: 200px;
+          height: 18px;
+          @include skeleton-load;
+        }
+      }
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      &-primary-data {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 200px;
+
+        .avatar {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background-position: center;
+          background-size: contain;
+        }
+    
+        .description {
+          padding-left: 10px;
+          
+          .username {
+            margin-bottom: 5px;
+            font-size: 24px;
+            color: $primary-color;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .follow-data {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 300px;
+
+        .followers, .following {
+          text-align: center;
+
+          p {
+            color: $tertiary-color;
+          }
+        }
+      }
+    }
+  }
+  
+  .home-content {
+    width: 100%;
+    height: 70%;
+    text-align: center;
+
+    .no-search {
+      position: relative;
+      top: 5%;
+
+      .title {
+        font-size: 5rem;
+        color: $primary-color;
+      }
+  
+      .desc {
+        font-size: 2rem;
+        color: $default;
+      }
+
+      .PAT {
+        padding: 5px;
+        margin: 5px;
+        text-align: center;
+        width: 30%;
+      }
+    }
+
+    .searched {
+      width: 100%;
+      height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .loading-repos, .repos {
+        width: 80%;
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: repeat(3, auto);
+        grid-gap: 5px;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
+}

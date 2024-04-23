@@ -1,0 +1,16 @@
+@import '../../../../../node_modules/@angular/material/button/icon-button-theme';
+@import '../../../../assets/styles/variables.scss';
+
+.mat-mdc {
+  &-paginator {
+    background: none;
+    
+    ::ng-deep &-page-size {
+      display: none !important;
+    }
+  }
+
+  ::ng-deep &-icon-button {
+    @include _ripple-color($primary-color);
+  }
+}

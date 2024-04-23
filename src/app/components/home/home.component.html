@@ -1,0 +1,74 @@
+<div class="home-container">
+  <div class="search-bar">
+    <app-search-bar (search)="searchUser($event)"></app-search-bar>
+  </div>
+
+  <ng-container *ngIf="userFound; else message">
+    <div class="home-user-data">
+      <ng-container *ngIf="isSearched">
+        <ng-template #userLoading>
+          <div class="loading-user">
+            <div class="user-primary-data">
+              <div class="avatar"></div>
+              <div class="description">
+                <div class="username"></div>
+                <div class="bio"></div>
+              </div>
+            </div>
+            <div class="follow-data">
+              <div class="followers"></div>
+              <div class="following"></div>
+            </div>
+          </div>
+        </ng-template>
+  
+        <ng-container *ngIf="userDetails; else userLoading">
+          <div class="user">
+            <div class="user-primary-data">
+              <div class="avatar" [ngStyle]="{backgroundImage: 'url('+userDetails.avatar+')'}"></div>
+              <div class="description">
+                <div class="username"><a target="_blank" [href]="userDetails.url">{{userDetails.username}}</a></div>
+                <div class="bio">{{userDetails.bio}}</div>
+              </div>
+            </div>
+            <div class="follow-data">
+              <div class="followers">Followers <p>{{userDetails.followers}}</p></div>
+              <div class="following">Following <p>{{userDetails.following}}</p></div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+    
+    <div class="home-content">
+      <ng-template #notSearched>
+        <div class="no-search">
+          <p class="title">Github User</p>
+          <p class="desc">Search for a github user</p>
+          <input class="PAT" type="text" placeholder="Personal Access Token For Unlimited Access" [(ngModel)]="pat">
+        </div>
+      </ng-template>
+  
+      <ng-container *ngIf="isSearched; else notSearched">
+        <div class="searched">
+          <ng-template #loadingRepos>
+            <div class="loading-repos">
+              <app-skeleton-loader *ngFor="let item of items"></app-skeleton-loader>
+            </div>
+          </ng-template>
+          
+          <ng-container *ngIf="(reposDetails.length === perPageRepos || reposDetails.length === numberOfRepos % perPageRepos) && userDetails; else loadingRepos">
+            <div class="repos">
+              <app-card *ngFor="let repo of reposDetails" [repoTitle]="repo.repoName" [description]="repo.description" [languages]="repo.languagesData" [url]="repo.url"></app-card>
+            </div>
+          </ng-container>
+          <div class="pagination"><app-paginator (pageEvent)="turnPage($event)" [length]="numberOfRepos"></app-paginator></div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-template #message>
+    <div class="msg"><p>{{msg}}</p></div>
+  </ng-template>
+</div>

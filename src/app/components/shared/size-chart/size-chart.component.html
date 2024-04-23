@@ -1,0 +1,5 @@
+<div class="size-chart-container">
+  <ng-container *ngFor="let style of styles">
+    <div [ngStyle]="style" [ngClass]="style.class"></div>
+  </ng-container>
+</div>

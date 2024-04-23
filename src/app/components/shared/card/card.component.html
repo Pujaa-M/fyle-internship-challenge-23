@@ -1,0 +1,12 @@
+<a target="_blank" [href]="url">
+<div mat-ripple [matRippleCentered]="true" [matRippleRadius]="500" [matRippleColor]="tertiaryColor" class="card-container">
+  <div class="card-header">
+    <div class="title">{{repoTitle}}</div>
+    <div class="description">{{description}}</div>
+  </div>
+  <div class="card-details">
+    <div class="languages"><app-chip *ngFor="let chip of languages" [chipColor]="chip.class" [chipContent]="chip.content"></app-chip></div>
+    <div class="lang-chart"><app-size-chart *ngIf="languages.length" [styles]="languages"></app-size-chart></div>
+  </div>
+</div>
+</a>

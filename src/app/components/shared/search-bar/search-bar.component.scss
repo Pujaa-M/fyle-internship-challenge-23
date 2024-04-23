@@ -1,0 +1,25 @@
+@import '../../../../assets/styles/variables.scss';
+
+.search-bar {
+  &-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 5px 0 5px;
+  }
+
+  &-bg {
+    width: 50%;
+    text-align: center;
+  }
+
+  &-field {
+    width: 98%;
+    outline: none;
+    padding: 5px;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 10px;
+    background: none;
+  }
+}

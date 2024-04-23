@@ -1,0 +1,4 @@
+<div class="search-bar-container">
+  <span class="search-bar-bg"><input type="text" (keypress)="emitSearchValueOnKeyPress($event)" class="search-bar-field" placeholder="Search user" name="username" [(ngModel)]="searchValue"></span>
+  <button class="search-bar-button" (click)="emitSearchValue()"><app-search-icon></app-search-icon></button>
+</div>
