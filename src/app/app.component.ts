@@ -12,7 +12,8 @@ export class AppComponent implements OnInit{
     private apiService: ApiService
   ) {}
 
+  title: string = "fyle-frontend-challenge"
+
   ngOnInit() {
-    // this.apiService.getUser('johnpapa').subscribe(console.log);
   }
 }

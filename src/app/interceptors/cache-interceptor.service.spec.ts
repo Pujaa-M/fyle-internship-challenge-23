@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CacheInterceptorService } from './cache-interceptor.service';
+import { CacheInterceptor } from './cache-interceptor.service';
 
-describe('CacheInterceptorService', () => {
-  let service: CacheInterceptorService;
+describe('CacheInterceptor', () => {
+  let service: CacheInterceptor;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CacheInterceptorService);
+    service = TestBed.inject(CacheInterceptor);
   });
 
   it('should be created', () => {
