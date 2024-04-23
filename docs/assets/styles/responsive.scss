@@ -1,0 +1,47 @@
+@media screen and (max-width: 1070px) {
+  .user-primary-data {
+    width: 25% !important;
+  }
+}
+
+@media screen and (max-width: 1016px) {
+  .loading-repos, .repos {
+    grid-template-columns: 100% !important;
+    grid-template-rows: repeat(6, auto) !important;
+    overflow-y: scroll !important;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .user-primary-data {
+    width: 40% !important;
+  }
+
+  .follow-data {
+    width: 150px !important;
+  }
+
+  .loading-repos, .repos {
+    width: 98% !important;
+  }
+
+  .user {
+    .username {
+      font-size: 18px;
+    }
+
+    .bio {
+      font-size: 12px;
+    }
+  }
+
+  .loading-user {
+    .username {
+      height: 18px;
+    }
+
+    .bio {
+      height: 12px;
+    }
+  }
+}
